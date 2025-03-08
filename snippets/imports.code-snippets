@@ -1,0 +1,15 @@
+{
+	"Import Assets": {
+		"prefix": "sv.import.assets",
+		"body": "from supervision.assets import download_assets, VideoAssets",
+		"description": "Import Supervision assets"
+	},
+
+	"Import Supervision": {
+		"prefix": "sv.import",
+		"body": "import supervision as sv",
+		"description": "Import Supervision"
+	},
+
+	
+}

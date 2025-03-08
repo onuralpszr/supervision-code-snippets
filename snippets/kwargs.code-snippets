@@ -1,0 +1,75 @@
+
+{
+    "Supervision BoxAnnotator Parameters": {
+        "prefix": "sv.kwargs.box_annotator",
+        "body": [
+            "box_annotator = sv.BoxAnnotator(",
+            "    color=${1:None},              # (sv.Color | sv.ColorPalette | tuple): color of the boxes and text",
+            "    thickness=${2:2},             # (int): thickness of the box lines",
+            "    text_color=${3:None},         # (sv.Color | sv.ColorPalette | tuple): color of the text",
+            "    text_scale=${4:0.5},          # (float): scale of the text",
+            "    text_thickness=${5:1},        # (int): thickness of the text",
+            "    text_padding=${6:5}           # (int): padding between text and box",
+            ")",
+            "$0"
+        ],
+        "description": "Snippet for BoxAnnotator initialization with all parameters"
+    },
+    "Supervision MaskAnnotator Parameters": {
+        "prefix": "sv.kwargs.mask_annotator",
+        "body": [
+            "mask_annotator = sv.MaskAnnotator(",
+            "    color=${1:None},              # (sv.Color | sv.ColorPalette | tuple): color of the mask",
+            "    opacity=${2:0.5}              # (float): opacity of the mask, between 0 and 1",
+            ")",
+            "$0"
+        ],
+        "description": "Snippet for MaskAnnotator initialization with all parameters"
+    },
+    "Supervision LineZone Parameters": {
+        "prefix": "sv.kwargs.line_zone",
+        "body": [
+            "line_zone = sv.LineZone(",
+            "    start=sv.Point(${1:100}, ${2:200}),     # (sv.Point): start point of the line",
+            "    end=sv.Point(${3:500}, ${4:200}),       # (sv.Point): end point of the line",
+            "    triggering_anchors=${5:['center']},     # (List[str]): points of the detection box used to determine if it crossed the line",
+            "    trigger_position=${6:'center'},         # (str): the position of the trigger, options: 'center', 'bottom', 'top', etc.",
+            "    directionality=${7:'both'}             # (str): crossing direction, options: 'both', 'up_dir', 'down_dir', etc.",
+            ")",
+            "$0"
+        ],
+        "description": "Snippet for LineZone initialization with all parameters"
+    },
+
+    "Supervision PolygonZone Parameters": {
+        "prefix": "sv.kwargs.polygon_zone",
+        "body": [
+            "polygon_zone = sv.PolygonZone(",
+            "    polygon=np.array([              # (np.ndarray): polygon points in [x, y] format",
+            "        [${1:100}, ${2:100}],",
+            "        [${3:500}, ${4:100}],",
+            "        [${5:500}, ${6:500}],",
+            "        [${7:100}, ${8:500}]",
+            "    ]),",
+            "    frame_resolution_wh=(${9:1280}, ${10:720}),  # (Tuple[int, int]): frame resolution (width, height)",
+            "    triggering_anchors=${11:['center']}          # (List[str]): anchors to use for triggering",
+            ")",
+            "$0"
+        ],
+        "description": "Snippet for PolygonZone initialization with all parameters"
+    },
+    "Supervision ByteTrack Parameters": {
+        "prefix": "sv.kwargs.bytetrack",
+        "body": [
+            "tracker = sv.ByteTrack(",
+            "    track_thresh=${1:0.25},          # (float): tracking threshold",
+            "    track_buffer=${2:30},            # (int): tracking buffer",
+            "    match_thresh=${3:0.8},           # (float): match threshold",
+            "    frame_rate=${4:30}               # (int): frame rate of the video",
+            ")",
+            "$0"
+        ],
+        "description": "Snippet for ByteTrack initialization with all parameters"
+    },
+
+}

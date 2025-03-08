@@ -1,0 +1,12 @@
+# Git files
+.git/
+.github/
+
+# VS Code
+*.code-workspace
+
+# VS Code extension
+*.vsix
+
+# Media files
+image.png

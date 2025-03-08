@@ -1,0 +1,19 @@
+{
+	
+	"Supervision Ultralytics Detection": {
+		"prefix": "sv.model.ultralytics",
+		"body": [
+			"from ultralytics import YOLO",
+			"import supervision as sv",
+			"",
+			"model = YOLO(\"${1:yolov8n.pt}\")",
+			"results = model(\"${2:path/to/image.jpg}\")",
+			"",
+			"# Convert YOLO results to Supervision Detections",
+			"detections = sv.Detections.from_ultralytics(results[0])",
+			"$0"
+		],
+		"description": "Initialize YOLO model and convert results to Supervision Detections."
+	},
+
+}

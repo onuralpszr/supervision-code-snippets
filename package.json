@@ -1,0 +1,53 @@
+{
+	"name": "supervision-code-snippets",
+	"displayName": "Supervision Code Snippets",
+	"description": "Code Snippets to use with the Supervision Python library.",
+	"version": "0.0.1",
+	"publisher": "Onuralp Sezer",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/onuralpszr/supervision-code-snippets.git"
+    },
+    "license": "MIT",
+    "icon": "images/sv-logo.png",
+    "author": {
+        "name": "Onuralp Sezer"
+    },
+    "galleryBanner": {
+        "color": "#9040F0",
+        "theme": "dark"
+    },
+	"engines": {
+		"vscode": "^1.28.0"
+	},
+	"categories": [
+		"Snippets", "Machine Learning", "Data Science", "AI", "Other"
+	],
+    "keywords": [
+        "Supervision", "snippets", "python", "machine learning", "ai", "computer vision", "object detection", "classification", "segmentation", "tracking"
+    ],
+	"contributes": {
+		"snippets": [
+			{
+				"language": "python",
+				"path": "./snippets/imports.code-snippets"
+			},
+            {
+                "language": "python",
+                "path": "./snippets/models.code-snippets"
+            },
+            {
+                "language": "python",
+                "path": "./snippets/examples.code-snippets"
+            },
+            {
+                "language": "python",
+                "path": "./snippets/utils.code-snippets"
+            },
+            {
+                "language": "python",
+                "path": "./snippets/kwargs.code-snippets"
+            }
+		]
+	}
+}

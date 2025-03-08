@@ -1,0 +1,165 @@
+{
+	"Supervision Utility Video-Util": {
+		"prefix": "sv.util.video-util",
+		"body": [
+			"",
+			"video_info = sv.VideoInfo.from_video_path(video_path=<SOURCE_VIDEO_FILE>)",
+			"",
+			"video_info.resolution_wh"
+		],
+		"description": "Use Supervision VideoInfo utility to get video resolution."
+	},
+
+	
+	"Supervision Utility Video-Sink": {
+		"prefix": "sv.util.video-sink",
+		"body": [
+			"import supervision as sv",
+			"",
+			"video_info = sv.VideoInfo.from_video_path(<SOURCE_VIDEO_PATH>)",
+			"frames_generator = sv.get_video_frames_generator(<SOURCE_VIDEO_PATH>)",
+			"",
+			"with sv.VideoSink(target_path=<TARGET_VIDEO_PATH>, video_info=video_info) as sink:",
+			"    for frame in frames_generator:",
+			"        sink.write_frame(frame=frame)"
+		],
+		"description": "Use Supervision VideoSink utility to write frames to a video file."
+	},
+
+	"Supervision Box Annotator": {
+		"prefix": "sv.util.box_annotator",
+		"body": [
+			"from supervision import BoxAnnotator",
+			"",
+			"box_annotator = BoxAnnotator(",
+			"    color=${1:None},  # sv.Color, sv.ColorPalette or tuple of RGB values",
+			"    thickness=${2:2},  # int",
+			"    text_color=${3:None},  # sv.Color or tuple of RGB values",
+			"    text_scale=${4:0.5},  # float",
+			"    text_thickness=${5:1},  # int",
+			"    text_padding=${6:5}  # int",
+			")",
+			"$0"
+		],
+		"description": "Initialize Supervision BoxAnnotator for drawing bounding boxes with labels."
+	},
+	"Supervision Mask Annotator": {
+		"prefix": "sv.util.mask_annotator",
+		"body": [
+			"from supervision import MaskAnnotator",
+			"",
+			"mask_annotator = MaskAnnotator(",
+			"    color=${1:None},  # sv.Color, sv.ColorPalette or tuple of RGB values",
+			"    opacity=${2:0.5}  # float between 0 and 1",
+			")",
+			"$0"
+		],
+		"description": "Initialize Supervision MaskAnnotator for drawing segmentation masks."
+	},
+	"Supervision Circle Annotator": {
+		"prefix": "sv.util.circle_annotator",
+		"body": [
+			"from supervision import CircleAnnotator",
+			"",
+			"circle_annotator = CircleAnnotator(",
+			"    color=${1:None},  # sv.Color, sv.ColorPalette or tuple of RGB values", 
+			"    thickness=${2:2},  # int",
+			"    radius=${3:5}  # int",
+			")",
+			"$0"
+		],
+		"description": "Initialize Supervision CircleAnnotator for drawing points/circles."
+	},
+	"Supervision Trace Annotator": {
+		"prefix": "sv.util.trace_annotator",
+		"body": [
+			"from supervision import TraceAnnotator",
+			"",
+			"trace_annotator = TraceAnnotator(",
+			"    color=${1:None},  # sv.Color, sv.ColorPalette or tuple of RGB values",
+			"    thickness=${2:2},  # int",
+			"    trace_length=${3:30}  # int, number of previous tracking points to keep",
+			")",
+			"$0"
+		],
+		"description": "Initialize Supervision TraceAnnotator for drawing object movement traces."
+	},
+	"Supervision ByteTrack": {
+		"prefix": "sv.util.bytetrack",
+		"body": [
+			"from supervision import ByteTrack",
+			"",
+			"tracker = ByteTrack(",
+			"    frame_rate=${1:30},  # int, video frame rate",
+			"    track_threshold=${2:0.25},  # float, detection confidence threshold",
+			"    track_buffer=${3:30},  # int, frames to keep track alive without matching detection",
+			"    match_threshold=${4:0.8}  # float, threshold for IoU matching",
+			")",
+			"$0"
+		],
+		"description": "Initialize Supervision ByteTrack for multi-object tracking."
+	},
+	"Supervision LineCounter": {
+		"prefix": "sv.util.line_counter",
+		"body": [
+			"from supervision import LineCounter, LineZone, Point",
+			"",
+			"# Define counting line with 2 points",
+			"line_counter = LineCounter(",
+			"    start=Point(${1:100}, ${2:200}),  # start point coordinates (x, y)",
+			"    end=Point(${3:300}, ${4:200}),  # end point coordinates (x, y)",
+			"    matcher=${5:\"center_of_bbox\"}  # either string like \"center_of_bbox\" or custom callable",
+			")",
+			"$0"
+		],
+		"description": "Initialize Supervision LineCounter for counting objects crossing a line."
+	},
+	"Supervision PolygonZone": {
+		"prefix": "sv.util.polygon_zone",
+		"body": [
+			"import numpy as np",
+			"from supervision import PolygonZone",
+			"",
+			"# Define polygon zone with points",
+			"polygon = np.array([",
+			"    [${1:100}, ${2:100}],  # [x, y]",
+			"    [${3:300}, ${4:100}],  # [x, y]",
+			"    [${5:300}, ${6:300}],  # [x, y]",
+			"    [${7:100}, ${8:300}]   # [x, y]",
+			"])",
+			"",
+			"zone = PolygonZone(",
+			"    polygon=polygon,",
+			"    frame_resolution_wh=(${9:640}, ${10:640})  # (width, height) of the frame",
+			")",
+			"$0"
+		],
+		"description": "Initialize Supervision PolygonZone for detecting objects in a polygon area."
+	},
+	"Supervision ColorPalette": {
+		"prefix": "sv.util.color_palette",
+		"body": [
+			"from supervision import ColorPalette",
+			"",
+			"# Initialize color palette",
+			"color_palette = ColorPalette.${1|default,default_confidence,default_heatmap,default_eye_catching,default_random|}(${2:len(class_names)})",
+			"$0"
+		],
+		"description": "Initialize Supervision ColorPalette for consistent colors."
+	},
+	"Supervision Filter by Class ID": {
+		"prefix": "sv.util.filter_class",
+		"body": [
+			"# Filter detections by class ID",
+			"class_ids_to_keep = [${1:0, 2, 5}]  # list of class IDs to keep",
+			"",
+			"# Create a boolean mask of which detections to keep",
+			"mask = [class_id in class_ids_to_keep for class_id in ${2:detections}.class_id]",
+			"",
+			"# Apply the mask to filter detections",
+			"filtered_detections = ${2:detections}[mask]",
+			"$0"
+		],
+		"description": "Filter Supervision Detections by class ID."
+	}
+}
