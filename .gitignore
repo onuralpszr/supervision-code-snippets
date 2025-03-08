@@ -30,12 +30,6 @@ out/
 # Ignore any compiled XML files
 *.xml
 
-# Ignore any compiled image files
-*.png
-*.jpg
-*.jpeg
-*.gif
-*.svg
 
 # Ignore any compiled font files
 *.woff

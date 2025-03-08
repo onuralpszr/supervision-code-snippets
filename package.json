@@ -2,8 +2,8 @@
 	"name": "supervision-code-snippets",
 	"displayName": "Supervision Code Snippets",
 	"description": "Code Snippets to use with the Supervision Python library.",
-	"version": "0.0.1",
-	"publisher": "Onuralp Sezer",
+	"version": "0.0.2",
+	"publisher": "osezer",
     "repository": {
         "type": "git",
         "url": "https://github.com/onuralpszr/supervision-code-snippets.git"
