@@ -2,7 +2,7 @@
 	"name": "supervision-code-snippets",
 	"displayName": "Supervision Code Snippets",
 	"description": "Code Snippets to use with the Supervision Python library.",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"publisher": "osezer",
     "repository": {
         "type": "git",
@@ -30,23 +30,23 @@
 		"snippets": [
 			{
 				"language": "python",
-				"path": "./snippets/imports.code-snippets"
+				"path": "./snippets/sv.imports.code-snippets"
 			},
             {
                 "language": "python",
-                "path": "./snippets/models.code-snippets"
+                "path": "./snippets/sv.detections.code-snippets"
             },
             {
                 "language": "python",
-                "path": "./snippets/examples.code-snippets"
+                "path": "./snippets/sv.examples.code-snippets"
             },
             {
                 "language": "python",
-                "path": "./snippets/utils.code-snippets"
+                "path": "./snippets/sv.utils.code-snippets"
             },
             {
                 "language": "python",
-                "path": "./snippets/kwargs.code-snippets"
+                "path": "./snippets/sv.kwargs.code-snippets"
             }
 		]
 	}
