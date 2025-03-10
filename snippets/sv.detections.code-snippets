@@ -16,4 +16,5 @@
 		"description": "Initialize YOLO model and convert results to Supervision Detections."
 	},
 
+
 }

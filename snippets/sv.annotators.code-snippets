@@ -1,0 +1,56 @@
+{
+	"Supervision Box Annotator": {
+		"prefix": "sv.annotators.box",
+		"body": [
+			"",
+			"box_annotator = sv.BoxAnnotator(",
+			"    color=${1:None},  # sv.Color, sv.ColorPalette or tuple of RGB values",
+			"    thickness=${2:2},  # int",
+			"    color_lookup=${3:sv.ColorLookup.CLASS}  # ColorLookup.CLASS",
+			")",
+			"$0"
+		],
+		"description": "Initialize Supervision BoxAnnotator for drawing bounding boxes with labels."
+	},
+	"Supervision Mask Annotator": {
+		"prefix": "sv.annotators.mask",
+		"body": [
+			"",
+			"mask_annotator = sv.MaskAnnotator(",
+			"    color=${1:None},  # sv.Color, sv.ColorPalette or tuple of RGB values",
+			"    opacity=${2:0.5}  # float between 0 and 1",
+			"    color_lookup=${3:sv.ColorLookup.CLASS}  # ColorLookup.CLASS",
+			")",
+			"$0"
+		],
+		"description": "Initialize Supervision MaskAnnotator for drawing segmentation masks."
+	},
+	"Supervision Circle Annotator": {
+		"prefix": "sv.annotators.circle",
+		"body": [
+			"",
+			"circle_annotator = sv.CircleAnnotator(",
+			"    color=${1:None},  # sv.Color, sv.ColorPalette or tuple of RGB values", 
+			"    thickness=${2:2},  # int",
+			"    color_lookup=${3:sv.ColorLookup.CLASS}  # ColorLookup.CLASS",
+			")",
+			"$0"
+		],
+		"description": "Initialize Supervision CircleAnnotator for drawing points/circles."
+	},
+	"Supervision Trace Annotator": {
+		"prefix": "sv.annotators.trace",
+		"body": [
+			"",
+			"trace_annotator = TraceAnnotator(",
+			"    color=${1:None},  # sv.Color, sv.ColorPalette or tuple of RGB values",
+			"    thickness=${2:2},  # int",
+			"    trace_length=${3:30}  # int, number of previous tracking points to keep",
+			")",
+			"$0"
+		],
+		"description": "Initialize Supervision TraceAnnotator for drawing object movement traces."
+	},
+
+
+}

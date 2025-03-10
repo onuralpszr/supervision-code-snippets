@@ -1,0 +1,39 @@
+{
+	"Supervision Utility Video-Util": {
+		"prefix": "sv.util.video-util",
+		"body": [
+			"",
+			"video_info = sv.VideoInfo.from_video_path(video_path=<SOURCE_VIDEO_FILE>)",
+			"",
+			"video_info.resolution_wh"
+		],
+		"description": "Use Supervision VideoInfo utility to get video resolution."
+	},
+
+	"Supervision Utility Video-Sink": {
+		"prefix": "sv.util.video-sink",
+		"body": [
+			"import supervision as sv",
+			"",
+			"video_info = sv.VideoInfo.from_video_path(<SOURCE_VIDEO_PATH>)",
+			"frames_generator = sv.get_video_frames_generator(<SOURCE_VIDEO_PATH>)",
+			"",
+			"with sv.VideoSink(target_path=<TARGET_VIDEO_PATH>, video_info=video_info) as sink:",
+			"    for frame in frames_generator:",
+			"        sink.write_frame(frame=frame)"
+		],
+		"description": "Use Supervision VideoSink utility to write frames to a video file."
+	},
+
+	"Supervision ColorPalette": {
+		"prefix": "sv.util.color_palette",
+		"body": [
+			"import supervision as sv",
+			"",
+			"# Initialize color palette",
+			"color_palette = ColorPalette.${1|default,default_confidence,default_heatmap,default_eye_catching,default_random|}(${2:len(class_names)})",
+			"$0"
+		],
+		"description": "Initialize Supervision ColorPalette for consistent colors."
+	},
+}

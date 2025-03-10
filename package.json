@@ -47,6 +47,14 @@
             {
                 "language": "python",
                 "path": "./snippets/sv.kwargs.code-snippets"
+            },
+            {
+                "language": "python",
+                "path": "./snippets/sv.annotators.code-snippets"
+            },
+            {
+                "language": "python",
+                "path": "./snippets/sv.zones.code-snippets"
             }
 		]
 	}
